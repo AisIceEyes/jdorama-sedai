@@ -1,4 +1,4 @@
-# jdoramaeiga-sedai
+# jdorama-sedai
 
 To install dependencies:
 
