@@ -1,4 +1,4 @@
-# anime-sedai
+# jdoramaeiga-sedai
 
 To install dependencies:
 
