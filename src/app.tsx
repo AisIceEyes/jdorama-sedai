@@ -85,7 +85,7 @@ ${Object.keys(animeData)
 
     if (items.length === 0) return ""
 
-    const sliceItems = items.slice(0, 12)
+    const sliceItems = items.slice(0, 15)
     const watched = sliceItems
       .filter((item) => selectedAnime.includes(item.title))
       .map((item) => item.title)
@@ -109,7 +109,7 @@ ${Object.keys(animeData)
   }, [selectedAnime, promptType, language, t])
 
   const totalAnime = Object.values(animeData).flatMap((year) => {
-    return year.map((item) => item.title).slice(0, 12)
+    return year.map((item) => item.title).slice(0, 15)
   }).length
 
   return (
@@ -161,7 +161,7 @@ ${Object.keys(animeData)
                       </span>
                     </div>
                     <div className="flex shrink-0">
-                      {items.slice(0, 12).map((item) => {
+                      {items.slice(0, 15).map((item) => {
                         const animeKey = item.title
                         const displayTitle = item.title
                         const isSelected = selectedAnime.includes(animeKey)
@@ -210,7 +210,7 @@ ${Object.keys(animeData)
                         )
                       })}
                       {Array.from(
-                        { length: Math.max(0, 12 - items.length) },
+                        { length: Math.max(0, 15 - items.length) },
                         (_, index) => (
                           <div
                             key={`empty-${index}`}
@@ -244,7 +244,7 @@ ${Object.keys(animeData)
                 Object.values(animeData).flatMap((year) => {
                   return year
                     .map((item) => item.title)
-                    .slice(0, 12)
+                    .slice(0, 15)
                 })
               )
             }}
@@ -307,7 +307,7 @@ ${Object.keys(animeData)
           </button>
         </div>
 
-        <div className="flex flex-col gap-2 max-w-screen-md w-full mx-auto">
+        {/* <div className="flex flex-col gap-2 max-w-screen-md w-full mx-auto">
           <div className="border focus-within:ring-2 ring-pink-500 focus-within:border-pink-500 rounded-md">
             <div className="flex items-center justify-between p-2 border-b">
               <div className="flex items-center gap-2">
@@ -356,7 +356,7 @@ ${Object.keys(animeData)
               value={prompt}
             />
           </div>
-        </div>
+        </div> */}
 
         <div className="mt-2 text-center">
           {t("footer")}
@@ -373,7 +373,7 @@ ${Object.keys(animeData)
           </a>
           {t("madeBy")}
           <a
-            href="https://github.com/egoist/anime-sedai"
+            href="https://github.com/AisIceEyes/jdorama-sedai"
             target="_blank"
             className="underline"
           >
@@ -381,7 +381,7 @@ ${Object.keys(animeData)
           </a>
         </div>
 
-        {language === "en" && (
+        {/* {language === "en" && (
           <div className="text-center text-sm text-gray-600">
             English version is translated by{" "}
             <a
@@ -392,9 +392,9 @@ ${Object.keys(animeData)
               h1t
             </a>
           </div>
-        )}
+        )} */}
 
-        <div className="text-center">
+        {/* <div className="text-center">
           {t("otherProducts")}
           <a
             href="https://chatwise.app"
@@ -405,7 +405,7 @@ ${Object.keys(animeData)
             ChatWise
           </a>
           {t("aiChatClient")}
-        </div>
+        </div> */}
       </div>
     </>
   )
