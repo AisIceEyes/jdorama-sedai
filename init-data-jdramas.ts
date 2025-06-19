@@ -21,6 +21,7 @@ async function fetchTopDramas(year: number): Promise<JDrama[]> {
 
   // Build URL with filters: type=68 (drama), country=1 (Japan), sort=top, year filter
   const url = `${SEARCH_URL}?adv=titles&ty=68&co=1&re=${year},${year}&so=top`;
+  // const url = `${SEARCH_URL}?adv=titles&ty=68&co=1&re=${year},${year}&so=popular`;
   
   const res = await fetch(url);
   if (!res.ok) {
