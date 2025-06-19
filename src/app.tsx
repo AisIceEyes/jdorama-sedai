@@ -1,5 +1,7 @@
 import { useMemo, useRef, useState, useEffect } from "react"
-import animeData, { getAnimeTitle } from "../anime-data"
+// import animeData, { getAnimeTitle } from "../anime-data"
+import { jdramasByYear } from "../jdramas-by-year"
+const animeData = jdramasByYear
 import { domToBlob } from "modern-screenshot"
 import { toast } from "sonner"
 import { usePersistState } from "./hooks"
@@ -59,7 +61,7 @@ export const App = () => {
 
     const a = document.createElement("a")
     a.href = url
-    a.download = "anime-sedai.png"
+    a.download = "jdorama-sedai.png"
     a.click()
 
     URL.revokeObjectURL(url)
@@ -74,7 +76,7 @@ export const App = () => {
 ${preset}
 ${
   t("watched") === "Watched"
-    ? "User anime viewing record: (the year below is the anime release year)"
+    ? "User Japanese drama viewing record: (the year below is the drama release year)"
     : "用户动画观看记录：(下面的年份是动画发布的年份)"
 }
 ${Object.keys(animeData)
@@ -85,12 +87,12 @@ ${Object.keys(animeData)
 
     const sliceItems = items.slice(0, 12)
     const watched = sliceItems
-      .filter((item) => selectedAnime.includes(getAnimeTitle(item, "zh")))
-      .map((item) => getAnimeTitle(item, language))
+      .filter((item) => selectedAnime.includes(item.title))
+      .map((item) => item.title)
       .join(", ")
     const unWatched = sliceItems
-      .filter((item) => !selectedAnime.includes(getAnimeTitle(item, "zh")))
-      .map((item) => getAnimeTitle(item, language))
+      .filter((item) => !selectedAnime.includes(item.title))
+      .map((item) => item.title)
       .join(", ")
 
     return [
@@ -107,7 +109,7 @@ ${Object.keys(animeData)
   }, [selectedAnime, promptType, language, t])
 
   const totalAnime = Object.values(animeData).flatMap((year) => {
-    return year.map((item) => getAnimeTitle(item, "zh")).slice(0, 12)
+    return year.map((item) => item.title).slice(0, 12)
   }).length
 
   return (
@@ -160,8 +162,8 @@ ${Object.keys(animeData)
                     </div>
                     <div className="flex shrink-0">
                       {items.slice(0, 12).map((item) => {
-                        const animeKey = getAnimeTitle(item, "zh")
-                        const displayTitle = getAnimeTitle(item, language)
+                        const animeKey = item.title
+                        const displayTitle = item.title
                         const isSelected = selectedAnime.includes(animeKey)
                         return (
                           <button
@@ -241,7 +243,7 @@ ${Object.keys(animeData)
               setSelectedAnime(
                 Object.values(animeData).flatMap((year) => {
                   return year
-                    .map((item) => getAnimeTitle(item, "zh"))
+                    .map((item) => item.title)
                     .slice(0, 12)
                 })
               )
