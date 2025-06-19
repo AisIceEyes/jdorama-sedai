@@ -16,7 +16,8 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguageState] = useState<Language>(() => {
     try {
       const saved = localStorage.getItem('language')
-      return saved ? JSON.parse(saved) : 'zh'
+      // return saved ? JSON.parse(saved) : 'zh'
+      return saved ? JSON.parse(saved) : 'en'
     } catch {
       return 'zh'
     }
@@ -33,7 +34,8 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
 
   const t = (key: keyof typeof translations.zh, interpolations?: Record<string, string | number>) => {
     const currentTranslations = translations[language]
-    let text = currentTranslations[key] || translations.zh[key] || key
+    // let text = currentTranslations[key] || translations.zh[key] || key
+    let text = currentTranslations[key] || key
     
     if (interpolations) {
       Object.entries(interpolations).forEach(([placeholder, value]) => {
@@ -48,7 +50,7 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
     language,
     setLanguage,
     t,
-    isZh: language === 'zh',
+    // isZh: language === 'zh',
     isEn: language === 'en'
   }
 
