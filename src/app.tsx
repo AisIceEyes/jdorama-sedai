@@ -1,6 +1,6 @@
 import { useMemo, useRef, useState, useEffect } from "react"
 // import animeData, { getAnimeTitle } from "../anime-data"
-import { jdramasByYear } from "../jdramas-by-year"
+import { jdramasByYear } from "../jdramas-by-year-toprated"
 const animeData = jdramasByYear
 import { domToBlob } from "modern-screenshot"
 import { toast } from "sonner"
