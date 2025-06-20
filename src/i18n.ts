@@ -57,7 +57,7 @@ export const translations = {
     promptZako: 'Zako❤',
     copy: 'Copy',
     // openInChatWise: 'Open in ChatWise (installation required)',
-    footer: 'Most popular JDramas data from MyDramaList. Originally made for anime by ',
+    footer: 'Top rated JDramas data from MyDramaList. Originally made for anime by ',
     madeBy: ', tinkered for JDramas by Ais (AisIceEyes.com), ',
     viewCode: 'View Code',
     otherProducts: 'Other products by the author: ',
