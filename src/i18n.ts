@@ -39,7 +39,7 @@ export const translations = {
   en: {
     title: 'JDorama Sedai',
     subtitle: 'Click to select JDramas you have watched',
-    website: 'AisIceEyes.com',
+    website: 'jdorama-sedai.vercel.app',
     watchedCount: 'I have watched {{count}}/{{total}} JDramas',
     selectAll: 'Select All',
     clear: 'Clear',
